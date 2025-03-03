@@ -1,8 +1,6 @@
-from src.product import Product
-
-
 class Category:
     """Описание класса с категорией товара"""
+
     name: str
     description: str
     products: list

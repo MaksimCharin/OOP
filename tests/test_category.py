@@ -1,8 +1,9 @@
-
-
 def test_category_init(phone_category, tv_category):
     assert phone_category.name == "Смартфоны"
-    assert phone_category.description == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
+    assert (
+        phone_category.description
+        == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
+    )
     assert phone_category.name == "Смартфоны"
     assert len(phone_category.products) == 3
 
