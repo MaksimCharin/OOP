@@ -40,15 +40,15 @@ pip-delete-this-directory.txt
 .tox/
 .nox/
 .coverage
-.coverage.*
-.cache
+#.coverage.*
+#.cache
 nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
+#coverage.xml
+#*.cover
+#*.py,cover
 .hypothesis/
-.pytest_cache/
-cover/
+#.pytest_cache/
+#cover/
 
 # Translations
 *.mo
