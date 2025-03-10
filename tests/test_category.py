@@ -68,3 +68,6 @@ def test_category_and_product():
 
     new_product.price = -100
     assert new_product.price == 800
+
+def test_category_str(phone_category):
+    assert str(phone_category) == "Смартфоны, количество продуктов: 3 шт."
