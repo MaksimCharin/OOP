@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_product_iterator(product_iterator):
     iter(product_iterator)
     assert product_iterator.index == 0

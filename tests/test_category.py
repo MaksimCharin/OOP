@@ -43,11 +43,11 @@ def test_category_and_product():
 
     assert category.products_in_list == [product1, product2, product3]
 
-    product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
     category.add_product(product4)
 
     assert Category.product_count == 4
-    expected_products_str += "55\" QLED 4K, 123000.0 руб. Остаток: 7 шт.\n"
+    expected_products_str += '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.\n'
     assert category.products == expected_products_str
 
     new_product_dict = {
@@ -68,6 +68,7 @@ def test_category_and_product():
 
     new_product.price = -100
     assert new_product.price == 800
+
 
 def test_category_str(phone_category):
     assert str(phone_category) == "Смартфоны, количество продуктов: 3 шт."
