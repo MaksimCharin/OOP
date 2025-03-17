@@ -22,7 +22,7 @@ def phone_category():
     return Category(
         name="Смартфоны",
         description="Смартфоны, как средство не только коммуникации, но и "
-                    "получения дополнительных функций для удобства жизни",
+        "получения дополнительных функций для удобства жизни",
         products=[
             Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
@@ -36,7 +36,7 @@ def tv_category():
     return Category(
         name="Телевизоры",
         description="Современный телевизор, который позволяет наслаждаться просмотром, "
-                    "станет вашим другом и помощником",
+        "станет вашим другом и помощником",
         products=[Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)],
     )
 
@@ -63,8 +63,9 @@ def product_iterator(phone_category):
 
 @pytest.fixture()
 def smartphone_product_1():
-    return Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
-                      "S23 Ultra", 256, "Серый")
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
 
 
 @pytest.fixture()
@@ -75,6 +76,7 @@ def smartphone_product_2():
 @pytest.fixture()
 def lawn_grass_product_1():
     return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+
 
 @pytest.fixture()
 def lawn_grass_product_2():
