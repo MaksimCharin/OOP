@@ -2,18 +2,30 @@
 
 ## Описание:
 Созданы классы Product и Category.
+Добавлены классы Smartphone и LawnGrass, которые наследуются от класса Product
 
-Для класса Product определите следующие свойства: 
+Для класса Product определены следующие свойства: 
 - название (name), 
 - описание (description), 
 - цена (price), 
 - количество в наличии (quantity).
 
-Для класса Category определите следующие свойства: 
+Для класса Category определены следующие свойства: 
 - название (name), 
 - описание (description), 
 - список товаров категории (products).
 - атрибуты, которые хранят в себе количество категорий и количество товаров.
+
+Класс Smartphone наследуется от класса Product и расширен следующими атрибутами: 
+- производительность (efficiency),
+- модель (model), 
+- объем встроенной памяти (memory).
+- цвет (color)
+
+Класс LawnGrass наследуется от класса Product и расширен следующими атрибутами:
+- производитель (country),
+- срок прорастания (germination_period),
+- цвет (color)
 
 
 ## Установка:
@@ -58,4 +70,26 @@ def test_category_init(phone_category, tv_category):
 
     assert phone_category.product_count == 4
     assert tv_category.product_count == 4
+```
+Пример тестов для проверки класса Smartphone:
+
+```
+def test_smartphone_product_init(smartphone_product_1):
+    assert smartphone_product_1.name == "Samsung Galaxy S23 Ultra"
+    assert smartphone_product_1.description == "256GB, Серый цвет, 200MP камера"
+    assert smartphone_product_1.price == 180000.0
+    assert smartphone_product_1.quantity == 5
+    assert smartphone_product_1.efficiency == 95.5
+    assert smartphone_product_1.model == "S23 Ultra"
+    assert smartphone_product_1.memory == 256
+    assert smartphone_product_1.color == "Серый"
+
+
+def test_smartphone_product_add(smartphone_product_1, smartphone_product_2):
+    assert smartphone_product_1 + smartphone_product_2 == 2580000.0
+
+
+def test_smartphone_product_add_error(smartphone_product_1, lawn_grass_product_1):
+    with pytest.raises(TypeError):
+        result = smartphone_product_1 + lawn_grass_product_1
 ```
