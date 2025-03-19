@@ -25,7 +25,7 @@ def test_product_price_setter(capsys, second_product):
     new_price = -100
     second_product.price = new_price
     message = capsys.readouterr()
-    assert message.out.strip().split('\n')[-1] == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
     new_price = 800
     second_product.price = new_price
     assert second_product.price == 800
@@ -37,6 +37,7 @@ def test_product_str(product):
 
 def test_product_add(product, product2):
     assert product + product2 == 2580000.0
+
 
 def test_product_add_error(product):
     with pytest.raises(TypeError):
