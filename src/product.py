@@ -30,12 +30,7 @@ class Product(BaseProduct, PrintMixin):
 
     @classmethod
     def new_product(cls, product_dict):
-        name = product_dict.get("name")
-        description = product_dict.get("description")
-        price = product_dict.get("price")
-        quantity = product_dict.get("quantity")
-
-        return cls(name, description, price, quantity)
+        return cls(**product_dict)
 
     @property
     def price(self):
@@ -47,3 +42,8 @@ class Product(BaseProduct, PrintMixin):
             print("Цена не должна быть нулевая или отрицательная")
             return
         self.__price = new_price
+
+
+if __name__ == '__main__':
+    product = Product.new_product({'name': 'a', 'description': 'b', 'price': 1, 'quantity': 2})
+
