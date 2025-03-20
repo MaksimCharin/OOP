@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Описание класса продукт"""
 
     name: str
@@ -11,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
@@ -25,12 +30,7 @@ class Product:
 
     @classmethod
     def new_product(cls, product_dict):
-        name = product_dict.get("name")
-        description = product_dict.get("description")
-        price = product_dict.get("price")
-        quantity = product_dict.get("quantity")
-
-        return cls(name, description, price, quantity)
+        return cls(**product_dict)
 
     @property
     def price(self):
@@ -42,3 +42,8 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
             return
         self.__price = new_price
+
+
+if __name__ == '__main__':
+    product = Product.new_product({'name': 'a', 'description': 'b', 'price': 1, 'quantity': 2})
+

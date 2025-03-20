@@ -24,3 +24,13 @@ class LawnGrass(Product):
             total_price = product_price + other_price
             return total_price
         raise TypeError
+
+
+if __name__ == '__main__':
+    LawnGrass.new_product({'name': 'a',
+                           'description': 'b',
+                           'price': 1,
+                           'quantity': 2,
+                           'country': 'c',
+                           'germination_period': 3,
+                           'color': 'd'})

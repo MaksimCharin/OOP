@@ -2,7 +2,11 @@
 
 ## Описание:
 Созданы классы Product и Category.
-Добавлены классы Smartphone и LawnGrass, которые наследуются от класса Product
+Добавлены классы Smartphone и LawnGrass, которые наследуются от класса Product.
+Добавлен абстрактный класс BaseProduct.
+Добавлен миксин PrintMixin, который при создании объекта распечатывает в консоль информацию о том, 
+от какого класса и с какими параметрами был создан объект.
+Миксин добавлен в цепочку наследования класса *Product*
 
 Для класса Product определены следующие свойства: 
 - название (name), 
@@ -26,6 +30,13 @@
 - производитель (country),
 - срок прорастания (germination_period),
 - цвет (color)
+
+Абстрактный класс BaseProduct является родительским для классов продуктов и содержит в себе общий метод для всех классов
+```
+    @abstractmethod
+    def __add__(self, other) -> float:
+        pass
+```
 
 
 ## Установка:
@@ -92,4 +103,13 @@ def test_smartphone_product_add(smartphone_product_1, smartphone_product_2):
 def test_smartphone_product_add_error(smartphone_product_1, lawn_grass_product_1):
     with pytest.raises(TypeError):
         result = smartphone_product_1 + lawn_grass_product_1
+```
+Пример тестов для проверки миксина PrintMixin:
+```
+def test_print_mixin(capsys):
+    Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
+    message = capsys.readouterr()
+    assert message.out.strip() == "Smartphone(Samsung Galaxy S23 Ultra, 256GB, Серый цвет, 200MP камера, 180000.0, 5)"
 ```
