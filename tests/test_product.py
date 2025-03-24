@@ -42,3 +42,13 @@ def test_product_add(product, product2):
 def test_product_add_error(product):
     with pytest.raises(TypeError):
         result = product + 1
+
+
+def test_product_with_zero_quantity():
+    with pytest.raises(ValueError):
+        new_product = Product(
+            name="Трава-мурава",
+            description="Прекрасная трава-мурава",
+            price=490.00,
+            quantity=0,
+        )
