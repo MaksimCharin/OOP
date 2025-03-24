@@ -15,6 +15,10 @@ class Product(BaseProduct, PrintMixin):
         self.description = description
         self.__price = price
         self.quantity = quantity
+
+        if quantity == 0:
+            raise ValueError("Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством")
+
         super().__init__()
 
     def __str__(self):

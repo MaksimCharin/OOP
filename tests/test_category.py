@@ -79,3 +79,8 @@ def test_category_str(phone_category):
 def test_category_setter_error(phone_category):
     with pytest.raises(TypeError):
         phone_category.add_product("Not a product")
+
+def test_category_with_empty_list(phone_category):
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    assert category_empty.middle_price() == 0
+    assert phone_category.middle_price() == 140333.33
