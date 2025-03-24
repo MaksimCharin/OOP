@@ -44,7 +44,7 @@ def test_product_add_error(product):
         result = product + 1
 
 
-def test_product_with_zero_quatity():
+def test_product_with_zero_quantity():
     with pytest.raises(ValueError):
         new_product = Product(
             name="Трава-мурава",
